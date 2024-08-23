@@ -1,206 +1,137 @@
-/* Estilos globales */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Reseteo de márgenes y padding */
+body, h2, h3, p {
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa;
-    color: #343a40;
-    line-height: 1.6;
 }
 
-header {
-    background: linear-gradient(135deg, #6c63ff, #6a5acd);
-    color: white;
-    padding: 2rem;
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+/* Estilo para el título de la sección */
+#blog-section h2 {
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-}
-
-.blog-section {
-    padding: 2rem 5%;
-    max-width: 1200px;
-    margin: auto;
-}
-
-.blog-section h2 {
-    margin-bottom: 2rem;
-    font-size: 2rem;
-    text-align: center;
-    color: #6c63ff;
+    margin-bottom: 20px;
+    color: #4a90e2;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
 }
 
+/* Estilo para el select de categorías */
+#category-select {
+    display: block;
+    margin: 0 auto 20px auto;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+}
+
+/* Hover efecto para el select de categorías */
+#category-select:hover {
+    border-color: #4a90e2;
+}
+
+/* Estilo para el contenedor de las noticias */
 .news-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
 
-.blog-post {
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+/* Estilo para cada item de noticia */
+.news-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.blog-post:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+/* Hover efecto para cada item de noticia */
+.news-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
-.blog-post h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+/* Estilo para el título de cada noticia */
+.news-item h3 {
+    font-size: 18px;
+    margin: 15px;
     color: #333;
-    transition: color 0.3s;
+    flex-grow: 1;
+    transition: color 0.3s ease;
 }
 
-.blog-post h2:hover {
-    color: #6c63ff;
+/* Hover efecto para el título de cada noticia */
+.news-item:hover h3 {
+    color: #4a90e2;
 }
 
-.blog-post p {
-    font-size: 1rem;
-    color: #555;
+/* Estilo para las imágenes de las noticias */
+.news-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-.blog-post a {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    background-color: #6c63ff;
-    color: white;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.3s;
+/* Hover efecto para las imágenes */
+.news-item:hover img {
+    transform: scale(1.05);
 }
 
-.blog-post a:hover {
-    background-color: #5348e3;
-    transform: translateY(-3px);
+/* Estilo para la descripción de cada noticia */
+.news-item p {
+    font-size: 14px;
+    padding: 0 15px;
+    margin: 15px 0;
+    color: #666;
 }
 
-footer {
-    background-color: #343a40;
-    color: white;
+/* Estilo para el enlace "Leer más" */
+.news-item a {
+    display: block;
     text-align: center;
-    padding: 1.5rem;
-    margin-top: 3rem;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+    margin: 10px 15px 15px 15px;
+    padding: 10px 0;
+    background-color: #4a90e2;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Estilo responsive para pantallas pequeñas */
-@media (max-width: 992px) {
+/* Hover efecto para el enlace "Leer más" */
+.news-item a:hover {
+    background-color: #357ab7;
+    transform: scale(1.05);
+}
+
+/* Responsive: Adaptación para pantallas más pequeñas */
+@media screen and (max-width: 1200px) {
+    .news-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
     .news-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 480px) {
     .news-grid {
         grid-template-columns: 1fr;
     }
-
-    header h1 {
-        font-size: 2rem;
-    }
-
-    .blog-section h2 {
-        font-size: 1.5rem;
-    }
-
-    .blog-post h2 {
-        font-size: 1.3rem;
-    }
-}
-/* Estilo base para las imágenes en las noticias */
-.blog-post img {
-    width: 100%;
-    height: auto;
-    object-fit: cover; /* Asegura que la imagen se ajuste al contenedor manteniendo la relación de aspecto */
-    max-height: 200px; /* Ajusta esta altura según tus necesidades */
-    border-radius: 8px; /* Opcional: Añade bordes redondeados a las imágenes */
-}
-
-/* Ajustes adicionales para el contenedor de las noticias */
-.blog-post {
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px; /* Bordes redondeados para el contenedor */
-    transition: transform 0.3s ease;
-}
-
-/* Efecto hover para el contenedor */
-.blog-post:hover {
-    transform: translateY(-5px);
-}
-/* Estilo para el contenedor de cada noticia */
-.blog-post {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-    height: 100%; /* Asegura que todas las tarjetas tengan la misma altura */
-}
-
-/* Estilo para las imágenes dentro de las noticias */
-.blog-post img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    max-height: 150px; /* Ajusta esta altura según tus necesidades */
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-/* Estilo para el título de la noticia */
-.blog-post h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    text-align: center;
-    flex-grow: 1; /* Permite que el título ocupe el espacio disponible */
-}
-
-/* Estilo para la descripción de la noticia */
-.blog-post p {
-    text-align: center;
-    font-size: 1em;
-    color: #666;
-    margin-bottom: 10px;
-}
-
-/* Estilo para el botón */
-.blog-post a {
-    text-decoration: none;
-    background-color: #6C63FF;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    align-self: center;
-}
-
-/* Efecto hover en el botón */
-.blog-post a:hover {
-    background-color: #5A54E0;
-}
-
-/* Efecto hover en el contenedor */
-.blog-post:hover {
-    transform: translateY(-5px);
 }
